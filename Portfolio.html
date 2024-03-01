@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Priyvrat Modi's Modern portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anta&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        body {
+            background-color: rgb(3, 46, 46);
+            color: white;
+            font-family: "Anta", sans-serif;
+
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-around;
+            align-self: center;
+            height: 80px;
+            background-color: rgb(6, 95, 95);
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            margin: 30px;
+        }
+
+        nav ul li {
+            list-style: none;
+            margin: 0 23px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        nav ul li a:hover {
+            color: rgb(240, 30, 229);
+            font-size: 1.1rem;
+
+        }
+
+
+        .left {
+            font-size: 1.6rem;
+            margin: 23px;
+        }
+
+        .firstSection {
+            display: flex;
+            justify-content: space-around;
+            margin: 23px 0;
+        }
+
+        .leftSection {
+            font-size: 2.8rem;
+            margin: 100px 0;
+
+        }
+
+        .purple {
+            color: blueviolet;
+
+        }
+
+        .rightSection img {
+            margin: 0%;
+        }
+
+        #element {
+            color: blueviolet;
+        }
+
+        .secondSection {
+            max-width: 85vw;
+            margin: auto;
+            font-family: "Poppins", sans-serif;
+
+
+        }
+
+        main hr {
+            margin-top: 2%;
+            margin-bottom: 2%;
+            border: 0;
+            height: 2px;
+            background-color: rgb(25, 78, 94);
+
+
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="left">Priyvrat Modi Portfolio</div>
+            <div class="right">
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/">Contact Me</a></li>
+                    <li><a href="/">Services</a></li>
+                    <li><a href="/">Projects</a></li>
+                    <li><a href="/">Contribution</a></li>
+                    <li><a href="/">Current Status</a></li>
+                </ul>
+
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="firstSection">
+            <div class="leftSection">
+                Hello! I am <span class="purple">Priyvrat Modi</span>
+                <div>I am a App Developer</div>
+                <span id="element"></span>
+            </div>
+            <div class="rightSection">
+                <img src="appdeveloper.png" alt="">
+            </div>
+
+        </section>
+        <section class='secondSection'>
+            <hr>
+            <h1>
+                Current Status
+            </h1>
+
+
+        </section>
+
+    </main>
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script>
+        var typed = new Typed('#element', {
+            strings: [', Web Developer', ', IOS Developer', ', AI Engineer', ', Pianist', '&amp; <i>Learning!<i/>'],
+            typeSpeed: 30,
+        });
+    </script>
+
+</body>
+
+</html>
