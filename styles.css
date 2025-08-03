@@ -32,7 +32,6 @@ body {
     background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
     background-size: 400% 400%;
     animation: gradient 15s ease infinite;
-    height: 100vh;
 }
 @keyframes gradient {
 	0% {
@@ -219,7 +218,7 @@ body {
     display: block;
 }
 
-/* Dark mode styles 
+/*Dark mode styles*/ 
 body.dark-mode {
     --background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
     --text-primary: #ffffff;
@@ -228,7 +227,7 @@ body.dark-mode {
     --glass-bg: rgba(255, 255, 255, 0.05);
     --glass-border: rgba(255, 255, 255, 0.1);
     --glass-shadow: rgba(0, 0, 0, 0.5);
-}*/
+}
 
 body.dark-mode .dark-mode-btn {
     background: rgba(255, 255, 255, 0.1);
