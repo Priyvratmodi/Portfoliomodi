@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Priyvrat Modi - Software Engineer Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Floating Dock Navigation -->
+    <nav class="floating-dock">
+        <div class="dock-container">
+            <a href="#home" class="dock-item active" data-tooltip="Home">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3 9L12 2L21 9V20C21 20.5304 20.7893 21.0391 20.4142 21.4142C20.0391 21.7893 19.5304 22 19 22H5C4.46957 22 3.96086 21.7893 3.58579 21.4142C3.21071 21.0391 3 20.5304 3 20V9Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M9 22V12H15V22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </a>
+            <a href="#projects" class="dock-item" data-tooltip="Projects">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M22 19C22 19.5304 21.7893 20.0391 21.4142 20.4142C21.0391 20.7893 20.5304 21 20 21H4C3.46957 21 2.96086 20.7893 2.58579 20.4142C2.21071 20.0391 2 19.5304 2 19V5C2 4.46957 2.21071 3.96086 2.58579 3.58579C2.96086 3.21071 3.46957 3 4 3H9L11 6H20C20.5304 6 21.0391 6.21071 21.4142 6.58579C21.7893 6.96086 22 7.46957 22 8V19Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </a>
+            <a href="#education" class="dock-item" data-tooltip="Education">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M22 10V6C22 5.46957 21.7893 4.96086 21.4142 4.58579C21.0391 4.21071 20.5304 4 20 4H4C3.46957 4 2.96086 4.21071 2.58579 4.58579C2.21071 4.96086 2 5.46957 2 6V10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M7 20H17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M12 16V20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </a>
+            <a href="#skills" class="dock-item" data-tooltip="Skills">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </a>
+            <a href="#contact" class="dock-item" data-tooltip="Contact">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <polyline points="22,6 12,13 2,6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home" class="home-section">
+        <div class="logo-container">
+            <img src="lion_1471244.png" alt="Logo" class="site-logo">
+        </div>
+        
+        <!-- Dark Mode Toggle -->
+        <div class="dark-mode-toggle">
+            <button id="darkModeBtn" class="dark-mode-btn">
+                <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="2"/>
+                    <line x1="12" y1="1" x2="12" y2="3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    <line x1="12" y1="21" x2="12" y2="23" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    <line x1="1" y1="12" x2="3" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    <line x1="21" y1="12" x2="23" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                <span class="dark-mode-text">Dark mode</span>
+            </button>
+        </div>
+        
+        <div class="home-container">
+            <div class="home-content">
+                <h1 class="home-greeting">Hello, I'm Priyvrat Modi</h1>
+                <h2 class="home-title">{Software} Engineer</h2>
+                <p class="home-description">
+                    Transforming ideas into smarter solutions<br>
+                    through the power of &lt;buzz&gt;AI.&lt;/buzz&gt;
+                </p>
+                <div class="social-links">
+                    <a href="#" class="social-link" aria-label="LinkedIn">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16 8C17.5913 8 19.1174 8.63214 20.2426 9.75736C21.3679 10.8826 22 12.4087 22 14V21H18V14C18 13.4696 17.7893 12.9609 17.4142 12.5858C17.0391 12.2107 16.5304 12 16 12C15.4696 12 14.9609 12.2107 14.5858 12.5858C14.2107 12.9609 14 13.4696 14 14V21H10V14C10 12.4087 10.6321 10.8826 11.7574 9.75736C12.8826 8.63214 14.4087 8 16 8V8Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M6 9H2V21H6V9Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M4 6C5.10457 6 6 5.10457 6 4C6 2.89543 5.10457 2 4 2C2.89543 2 2 2.89543 2 4C2 5.10457 2.89543 6 4 6Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-link" aria-label="GitHub">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9 19C4 20.5 4 16.5 2 16M22 16V19C22 19.5304 21.7893 20.0391 21.4142 20.4142C21.0391 20.7893 20.5304 21 20 21H16C15.4696 21 14.9609 20.7893 14.5858 20.4142C14.2107 20.0391 14 19.5304 14 19V16.5C14 15.5 14.5 15 15 15H20C20.5304 15 21.0391 15.2107 21.4142 15.5858C21.7893 15.9609 22 16.4696 22 17V19Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-link" aria-label="Email">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <polyline points="22,6 12,13 2,6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="home-visual">
+                <div class="geometric-shape"></div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-dots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects-section">
+        <div class="container">
+            <h2 class="section-title">My<br>projects</h2>
+            <div class="project-showcase">
+                <div class="project-preview">
+                    <div class="project-image">
+                        <img src="assets/images/Project.png" alt="Online Cinema Project" />
+                    </div>
+                </div>
+                <div class="project-details">
+                    <div class="project-tags">
+                        <span class="tag">Design</span>
+                        <span class="tag">Web</span>
+                    </div>
+                    <h3 class="project-title">Online cinema</h3>
+                    <p class="project-date">// September 2023</p>
+                    <p class="project-description">
+                        A feature-rich platform for streaming movies and TV shows. 
+                        It includes user authentication, personalized recommendations, 
+                        watchlists, and responsive design for seamless viewing across devices. 
+                        Technologies: React, Node.js, MongoDB.
+                    </p>
+                    <button class="project-btn">See more</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education & Status Section -->
+    <section id="education" class="education-section">
+        <div class="container">
+            <div class="education-grid">
+                <div class="education-column">
+                    <div class="section-header">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M22 10V6C22 5.46957 21.7893 4.96086 21.4142 4.58579C21.0391 4.21071 20.5304 4 20 4H4C3.46957 4 2.96086 4.21071 2.58579 4.58579C2.21071 4.96086 2 5.46957 2 6V10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M7 20H17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M12 16V20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <h2>Education</h2>
+                    </div>
+                    
+                    <div class="timeline">
+                        <div class="timeline-item glass-box">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <div class="education-period">2016-2020:</div>
+                                <div class="education-degree">PhD</div>
+                                <div class="education-details">
+                                    Bachelor's Degree in Computer Science
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item glass-box">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <div class="education-period">2018-2022:</div>
+                                <div class="education-institution">Harvard university</div>
+                                <div class="education-details">
+                                    Certificate in React and Redux, Node.js Developer Course
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item glass-box">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <div class="education-period">2010-2012:</div>
+                                <div class="education-institution">Oxford university</div>
+                                <div class="education-details">
+                                    Certification in Full Stack Web Development
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item glass-box">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <div class="education-period">2016-2020:</div>
+                                <div class="education-institution">Oxford university</div>
+                                <div class="education-details">
+                                    Certificate in React and Redux, Node.js Developer Course
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="research-column">
+                    <div class="section-header">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2"/>
+                            <path d="M21 21L16.65 16.65" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <h2>Researched</h2>
+                    </div>
+
+                    <div class="timeline">
+                        <div class="timeline-item glass-box">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <div class="research-period">2016-2020:</div>
+                                <div class="research-title">Advanced Data Analytics with Big data Tools</div>
+                                <div class="research-details">
+                                    Utilized big data tools for advanced analytics and insights.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item glass-box">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <div class="research-period">2018-2022:</div>
+                                <div class="research-title">Cloud-Native Application Architectures</div>
+                                <div class="research-details">
+                                    Studied best practices for designing cloud-native applications.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item glass-box">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <div class="research-period">2016-2020:</div>
+                                <div class="research-title">AI-Driven User Experience Personalization</div>
+                                <div class="research-details">
+                                    Leveraged AI to personalize user experiences based on behavior.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills-section">
+        <div class="container">
+            <h2 class="section-title">My skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card glass-box" data-skill="typescript">
+                    <div class="skill-icon">
+                        <div class="skill-logo ts-logo">TS</div>
+                    </div>
+                    <div class="skill-name">TypeScript</div>
+                </div>
+                
+                <div class="skill-card glass-box" data-skill="photoshop">
+                    <div class="skill-icon">
+                        <div class="skill-logo ps-logo">Ps</div>
+                    </div>
+                    <div class="skill-name">Photoshop</div>
+                </div>
+                
+                <div class="skill-card glass-box" data-skill="premiere">
+                    <div class="skill-icon">
+                        <div class="skill-logo pr-logo">Pr</div>
+                    </div>
+                    <div class="skill-name">Premiere</div>
+                </div>
+                
+                <div class="skill-card glass-box" data-skill="lightroom">
+                    <div class="skill-icon">
+                        <div class="skill-logo lr-logo">Lr</div>
+                    </div>
+                    <div class="skill-name">Lightroom</div>
+                </div>
+                
+                <div class="skill-card glass-box" data-skill="illustrator">
+                    <div class="skill-icon">
+                        <div class="skill-logo ai-logo">Ai</div>
+                    </div>
+                    <div class="skill-name">Illustrator</div>
+                </div>
+                
+                <div class="skill-card glass-box" data-skill="nodejs">
+                    <div class="skill-icon">
+                        <div class="skill-logo node-logo">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 1.85c-.27 0-.55.07-.78.2l-7.44 4.3c-.48.28-.78.8-.78 1.36v8.58c0 .56.3 1.08.78 1.36l7.44 4.3c.46.26 1.04.26 1.5 0l7.44-4.3c.48-.28.78-.8.78-1.36V7.71c0-.56-.3-1.08-.78-1.36l-7.44-4.3c-.23-.13-.51-.2-.78-.2zm0 2.03L18.5 8 12 12.12 5.5 8 12 3.88zm1 15.22V13.5l5.5-3.18v5.39l-5.5 3.18z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="skill-name">Node.js</div>
+                </div>
+                
+                <div class="skill-card glass-box" data-skill="react">
+                    <div class="skill-icon">
+                        <div class="skill-logo react-logo">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 10.11c1.03 0 1.87.84 1.87 1.89s-.84 1.89-1.87 1.89c-1.03 0-1.87-.84-1.87-1.89s.84-1.89 1.87-1.89M7.37 20c.63.38 2.01-.2 3.6-1.7-.52-.59-1.03-1.23-1.51-1.9a22.7 22.7 0 0 1-2.4-.36c-.51 2.14-.32 3.61.31 3.96m.71-5.74l-.29-.51c-.11.29-.22.58-.29.86.27.06.57.11.88.16l-.3-.51m6.54-.76l.81-1.5-.81-1.5c-.3-.53-.62-1-.91-1.47C13.17 9 12.6 9 12 9s-1.17 0-1.71.03c-.29.47-.61.94-.91 1.47L8.57 12l.81 1.5c.3.53.62 1 .91 1.47.54.03 1.11.03 1.71.03s1.17 0 1.71-.03c.29-.47.61-.94.91-1.47M12 6.78c-.19.22-.39.45-.59.72h1.18c-.2-.27-.4-.5-.59-.72m0 10.44c.19-.22.39-.45.59-.72h-1.18c.2.27.4.5.59.72M16.62 4c-.62-.38-2 .2-3.59 1.7.52.59 1.03 1.23 1.51 1.9.82.08 1.63.2 2.4.36.51-2.14.32-3.61-.32-3.96m-.7 5.74l.29.51c.11-.29.22-.58.29-.86-.27-.06-.57-.11-.88-.16l.3.51m1.45-7.05c1.47.84 1.63 3.05 1.01 5.63 2.54.75 4.37 1.99 4.37 3.68s-1.83 2.93-4.37 3.68c.62 2.58.46 4.79-1.01 5.63-1.46.84-3.45-.12-5.37-1.95-1.92 1.83-3.91 2.79-5.37 1.95-1.47-.84-1.63-3.05-1.01-5.63-2.54-.75-4.37-1.99-4.37-3.68s1.83-2.93 4.37-3.68c-.62-2.58-.46-4.79 1.01-5.63 1.46-.84 3.45.12 5.37 1.95 1.92-1.83 3.91-2.79 5.37-1.95M17.08 12c.34.75.64 1.5.89 2.26 2.1-.63 3.28-1.53 3.28-2.26s-1.18-1.63-3.28-2.26c-.25.76-.55 1.51-.89 2.26M6.92 12c-.34-.75-.64-1.5-.89-2.26-2.1.63-3.28 1.53-3.28 2.26s1.18 1.63 3.28 2.26c.25-.76.55-1.51.89-2.26"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="skill-name">React</div>
+                </div>
+                
+                <div class="skill-card glass-box" data-skill="svelte">
+                    <div class="skill-icon">
+                        <div class="skill-logo svelte-logo">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M10.354 21.125a2.847 2.847 0 0 0 4.539-.827L17.5 14.33c.545-1.026.4-2.319-.36-3.204l-6.676-7.764a2.847 2.847 0 0 0-4.539.827L3.318 9.67c-.545 1.026-.4 2.319.36 3.204l6.676 7.764c.658.765 1.658 1.187 2.677 1.187h.323z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="skill-name">Svelte</div>
+                </div>
+                
+                <div class="skill-card glass-box" data-skill="aftereffects">
+                    <div class="skill-icon">
+                        <div class="skill-logo ae-logo">Ae</div>
+                    </div>
+                    <div class="skill-name">After Effects</div>
+                </div>
+                
+                <div class="skill-card glass-box" data-skill="figma">
+                    <div class="skill-icon">
+                        <div class="skill-logo figma-logo">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 12a3 3 0 1 1 6 0 3 3 0 0 1-6 0zM12 3a3 3 0 0 0-3 3v6a3 3 0 1 0 0 6 3 3 0 0 0 3-3V9a3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="skill-name">Figma</div>
+                </div>
+                
+                <div class="skill-card glass-box" data-skill="strapi">
+                    <div class="skill-icon">
+                        <div class="skill-logo strapi-logo">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M8.5 3h7v7h-7V3zm0 8.5h7V21h-7v-9.5zM0 3h7v7H0V3zm0 8.5h7V21H0v-9.5z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="skill-name">Strapi</div>
+                </div>
+                
+                <div class="skill-card glass-box" data-skill="postgresql">
+                    <div class="skill-icon">
+                        <div class="skill-logo postgres-logo">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M17.128 0C15.216 0 14.192.832 14.192 2.048c0 .8.48 1.536 1.216 1.92-.064.256-.128.544-.128.832 0 2.56 1.6 4.608 3.584 4.608 1.984 0 3.584-2.048 3.584-4.608 0-.288-.064-.576-.128-.832.736-.384 1.216-1.12 1.216-1.92C23.536.832 22.512 0 20.6 0c-.896 0-1.664.384-2.24.96-.576-.576-1.344-.96-2.24-.96z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="skill-name">PostgreSQL</div>
+                </div>
+                
+                <div class="skill-card glass-box" data-skill="nextjs">
+                    <div class="skill-icon">
+                        <div class="skill-logo next-logo">N</div>
+                    </div>
+                    <div class="skill-name">Next.js</div>
+                </div>
+                
+                <div class="skill-card glass-box" data-skill="javascript">
+                    <div class="skill-icon">
+                        <div class="skill-logo js-logo">JS</div>
+                    </div>
+                    <div class="skill-name">JavaScript</div>
+                </div>
+                
+                <div class="skill-card glass-box" data-skill="redux">
+                    <div class="skill-icon">
+                        <div class="skill-logo redux-logo">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M16.634 16.504c.87-.075 1.543-.84 1.543-1.775 0-.685-.428-1.204-1.039-1.398.041-.42.016-.84-.105-1.26C16.634 10.29 15.549 9 13.96 9c-1.588 0-2.673 1.29-3.072 3.071-.121.42-.146.84-.105 1.26-.611.194-1.039.713-1.039 1.398 0 .935.673 1.7 1.543 1.775.42.855 1.260 1.496 2.273 1.496s1.853-.641 2.273-1.496z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="skill-name">Redux</div>
+                </div>
+                
+                <div class="skill-card glass-box" data-skill="redis">
+                    <div class="skill-icon">
+                        <div class="skill-logo redis-logo">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2L2 7v10l10 5 10-5V7l-10-5zM8 8.5L12 6.5 16 8.5 12 10.5 8 8.5z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="skill-name">Redis</div>
+                </div>
+                
+                <div class="skill-card glass-box" data-skill="go">
+                    <div class="skill-icon">
+                        <div class="skill-logo go-logo">GO</div>
+                    </div>
+                    <div class="skill-name">Go</div>
+                </div>
+                
+                <div class="skill-card glass-box" data-skill="mongodb">
+                    <div class="skill-icon">
+                        <div class="skill-logo mongo-logo">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="skill-name">MongoDB</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2 class="section-title">Contact me</h2>
+            <div class="contact-content">
+                <div class="contact-form glass-box">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+                <div class="contact-info">
+                    <div class="contact-item glass-box">
+                        <h3>Get in touch</h3>
+                        <p>I'm always open to discussing new opportunities and interesting projects.</p>
+                        <div class="contact-details">
+                            <p><strong>Email:</strong> priyvrat.modi@example.com</p>
+                            <p><strong>Phone:</strong> +1 (555) 123-4567</p>
+                            <p><strong>Location:</strong> San Francisco, CA</p>
+                        </div>
+                    </div>
+                    <div class="resume-download">
+                        <button id="downloadResume" class="resume-btn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M21 15V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <polyline points="7,10 12,15 17,10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <line x1="12" y1="15" x2="12" y2="3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            Download Resume
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
