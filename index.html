@@ -10,12 +10,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div class="cursor-torch" aria-hidden="true"></div>
     <!-- Floating Dock Navigation -->
     <nav class="floating-dock">
         <div class="dock-container">
             <a href="#home" class="dock-item active" data-tooltip="Home">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M3 9L12 2L21 9V20C21 20.5304 20.7893 21.0391 20.4142 21.4142C20.0391 21.7893 19.5304 22 19 22H5C4.46957 22 3.96086 21.7893 3.58579 21.4142C3.21071 21.0391 3 20.5304 3 20V9Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M3 9L12 2L21 9V20C21 20.5304 20.7893 21.0391 20.4142 21.4142C20.0391 21.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 21.4142C3.21071 21.0391 3 20.5304 3 20V9Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     <path d="M9 22V12H15V22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
             </a>
@@ -26,9 +27,9 @@
             </a>
             <a href="#education" class="dock-item" data-tooltip="Education">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M22 10V6C22 5.46957 21.7893 4.96086 21.4142 4.58579C21.0391 4.21071 20.5304 4 20 4H4C3.46957 4 2.96086 4.21071 2.58579 4.58579C2.21071 4.96086 2 5.46957 2 6V10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M7 20H17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M12 16V20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M22 10L12 2L2 10l10 6 10-6Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M6 12v5c3 3 9 3 12 0v-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M12 22V12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
             </a>
             <a href="#skills" class="dock-item" data-tooltip="Skills">
@@ -53,25 +54,46 @@
             <img src="lion_1471244.png" alt="Logo" class="site-logo">
         </div>
         
-        <!-- Dark Mode Toggle -->
+        <!-- Dark/Light Theme Switch + controls -->
         <div class="dark-mode-toggle">
-            <button id="darkModeBtn" class="dark-mode-btn">
-                <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <!-- Animated Theme Switcher (Light/Dark) -->
+            <!-- From Uiverse.io by Galahhad -->
+            <label class="theme-switch" aria-label="Toggle Dark Mode">
+              <input type="checkbox" class="theme-switch__checkbox" id="themeSwitch">
+              <div class="theme-switch__container">
+                <div class="theme-switch__clouds"></div>
+                <div class="theme-switch__stars-container">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 144 55" fill="none">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M135.831 3.00688C135.055 3.85027 134.111 4.29946 133 4.35447C134.111 4.40947 135.055 4.85867 135.831 5.71123C136.607 6.55462 136.996 7.56303 136.996 8.72727C136.996 7.95722 137.172 7.25134 137.525 6.59129C137.886 5.93124 138.372 5.39954 138.98 5.00535C139.598 4.60199 140.268 4.39114 141 4.35447C139.88 4.2903 138.936 3.85027 138.16 3.00688C137.384 2.16348 136.996 1.16425 136.996 0C136.996 1.16425 136.607 2.16348 135.831 3.00688ZM31 23.3545C32.1114 23.2995 33.0551 22.8503 33.8313 22.0069C34.6075 21.1635 34.9956 20.1642 34.9956 19C34.9956 20.1642 35.3837 21.1635 36.1599 22.0069C36.9361 22.8503 37.8798 23.2903 39 23.3545C38.2679 23.3911 37.5976 23.602 36.9802 24.0053C36.3716 24.3995 35.8864 24.9312 35.5248 25.5913C35.172 26.2513 34.9956 26.9572 34.9956 27.7273C34.9956 26.563 34.6075 25.5546 33.8313 24.7112C33.0551 23.8587 32.1114 23.4095 31 23.3545ZM0 36.3545C1.11136 36.2995 2.05513 35.8503 2.83131 35.0069C3.6075 34.1635 3.99559 33.1642 3.99559 32C3.99559 33.1642 4.38368 34.1635 5.15987 35.0069C5.93605 35.8503 6.87982 36.2903 8 36.3545C7.26792 36.3911 6.59757 36.602 5.98015 37.0053C5.37155 37.3995 4.88644 37.9312 4.52481 38.5913C4.172 39.2513 3.99559 39.9572 3.99559 40.7273C3.99559 39.563 3.6075 38.5546 2.83131 37.7112C2.05513 36.8587 1.11136 36.4095 0 36.3545ZM56.8313 24.0069C56.0551 24.8503 55.1114 25.2995 54 25.3545C55.1114 25.4095 56.0551 25.8587 56.8313 26.7112C57.6075 27.5546 57.9956 28.563 57.9956 29.7273C57.9956 28.9572 58.172 28.2513 58.5248 27.5913C58.8864 26.9312 59.3716 26.3995 59.9802 26.0053C60.5976 25.602 61.2679 25.3911 62 25.3545C60.8798 25.2903 59.9361 24.8503 59.1599 24.0069C58.3837 23.1635 57.9956 22.1642 57.9956 21C57.9956 22.1642 57.6075 23.1635 56.8313 24.0069ZM81 25.3545C82.1114 25.2995 83.0551 24.8503 83.8313 24.0069C84.6075 23.1635 84.9956 22.1642 84.9956 21C84.9956 22.1642 85.3837 23.1635 86.1599 24.0069C86.9361 24.8503 87.8798 25.2903 89 25.3545C88.2679 25.3911 87.5976 25.602 86.9802 26.0053C86.3716 26.3995 85.8864 26.9312 85.5248 27.5913C85.172 28.2513 84.9956 28.9572 84.9956 29.7273C84.9956 28.563 84.6075 27.5546 83.8313 26.7112C83.0551 25.8587 82.1114 25.4095 81 25.3545ZM136 36.3545C137.111 36.2995 138.055 35.8503 138.831 35.0069C139.607 34.1635 139.996 33.1642 139.996 32C139.996 33.1642 140.384 34.1635 141.16 35.0069C141.936 35.8503 142.88 36.2903 144 36.3545C143.268 36.3911 142.598 36.602 141.98 37.0053C141.372 37.3995 140.886 37.9312 140.525 38.5913C140.172 39.2513 139.996 39.9572 139.996 40.7273C139.996 39.563 139.607 38.5546 138.831 37.7112C138.055 36.8587 137.111 36.4095 136 36.3545ZM101.831 49.0069C101.055 49.8503 100.111 50.2995 99 50.3545C100.111 50.4095 101.055 50.8587 101.831 51.7112C102.607 52.5546 102.996 53.563 102.996 54.7273C102.996 53.9572 103.172 53.2513 103.525 52.5913C103.886 51.9312 104.372 51.3995 104.98 51.0053C105.598 50.602 106.268 50.3911 107 50.3545C105.88 50.2903 104.936 49.8503 104.16 49.0069C103.384 48.1635 102.996 47.1642 102.996 46C102.996 47.1642 102.607 48.1635 101.831 49.0069Z" fill="currentColor"></path>
                 </svg>
-                <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="2"/>
-                    <line x1="12" y1="1" x2="12" y2="3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                    <line x1="12" y1="21" x2="12" y2="23" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                    <line x1="1" y1="12" x2="3" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                    <line x1="21" y1="12" x2="23" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </div>
+                <div class="theme-switch__circle-container">
+                  <div class="theme-switch__sun-moon-container">
+                    <div class="theme-switch__moon">
+                      <div class="theme-switch__spot"></div>
+                      <div class="theme-switch__spot"></div>
+                      <div class="theme-switch__spot"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </label>
+
+            <!-- Torch switch (replaces old button) - From Uiverse.io by Praashoo7 -->
+            <label class="switch" aria-label="Toggle Torch">
+              <input id="torchSwitch" class="chk_85" type="checkbox">
+              <span class="slider">
+                <svg viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg" class="torch">
+                  <path d="M 63.85,54.65 Q 62.77,54.13 61.88,53.31 Q 54.13,46.12 46.31,37.69 Q 43.88,35.06 44.29,31.53 Q 44.51,29.56 46.54,25.87 Q 56.15,8.39 59.06,3.56 Q 60.59,1.03 63.83,2.41 Q 67.73,4.07 71.11,6.55 Q 72.85,7.82 77.51,11.86 Q 89.11,21.92 96.94,34.06 Q 100.09,38.95 95.24,41.73 Q 83.77,48.31 72.16,54.64 Q 68.24,56.77 63.85,54.65 Z" fill="#ffffff"></path>
+                  <path d="M 14.03,66.29 Q 27.40,51.66 40.57,37.33 A 0.54,0.54 52.1 0 1 41.44,37.44 Q 43.25,40.72 45.58,43.04 Q 47.66,45.11 47.71,45.17 Q 54.67,52.58 62.60,58.93 A 0.44,0.43 43.0 0 1 62.63,59.59 Q 42.87,77.87 22.77,95.78 Q 20.75,97.58 19.20,97.93 Q 16.72,98.49 14.81,96.94 Q 6.88,90.47 2.81,84.94 Q 1.47,83.11 2.03,80.84 Q 2.37,79.43 4.04,77.51 Q 8.97,71.84 14.03,66.29 ZM 42.9269,57.1766 A 3.76 3.76 0.0 0 0 37.6102,57.0930 L 33.1721,61.3938 A 3.76 3.76 0.0 0 0 33.0886,66.7106 L 33.3531,66.9834 A 3.76 3.76 0.0 0 0 38.6698,67.0670 L 43.1079,62.7662 A 3.76 3.76 0.0 0 0 43.1914,57.4494 L 42.9269,57.1766 Z" fill="#ffffff"></path>
                 </svg>
-                <span class="dark-mode-text">Dark mode</span>
-            </button>
+                <svg class="b" width="100%" height="50%" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M29 20L31 22" class="bling_85"></path>
+                  <path d="M31.5 15H34.5" class="bling_85"></path>
+                  <path d="M29 10L31 8" class="bling_85"></path>
+                </svg>
+              </span>
+            </label>
         </div>
         
         <div class="home-container">
@@ -83,6 +105,7 @@
                     through the power of &lt;buzz&gt;AI.&lt;/buzz&gt;
                 </p>
                 <div class="social-links">
+                    <!-- Insert your LinkedIn profile URL in the href below, e.g., https://www.linkedin.com/in/your-username/ -->
                     <a href="#" class="social-link" aria-label="LinkedIn">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M16 8C17.5913 8 19.1174 8.63214 20.2426 9.75736C21.3679 10.8826 22 12.4087 22 14V21H18V14C18 13.4696 17.7893 12.9609 17.4142 12.5858C17.0391 12.2107 16.5304 12 16 12C15.4696 12 14.9609 12.2107 14.5858 12.5858C14.2107 12.9609 14 13.4696 14 14V21H10V14C10 12.4087 10.6321 10.8826 11.7574 9.75736C12.8826 8.63214 14.4087 8 16 8V8Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -90,11 +113,13 @@
                             <path d="M4 6C5.10457 6 6 5.10457 6 4C6 2.89543 5.10457 2 4 2C2.89543 2 2 2.89543 2 4C2 5.10457 2.89543 6 4 6Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                     </a>
+                    <!-- Insert your GitHub profile URL in the href below, e.g., https://github.com/your-username -->
                     <a href="#" class="social-link" aria-label="GitHub">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M9 19C4 20.5 4 16.5 2 16M22 16V19C22 19.5304 21.7893 20.0391 21.4142 20.4142C21.0391 20.7893 20.5304 21 20 21H16C15.4696 21 14.9609 20.7893 14.5858 20.4142C14.2107 20.0391 14 19.5304 14 19V16.5C14 15.5 14.5 15 15 15H20C20.5304 15 21.0391 15.2107 21.4142 15.5858C21.7893 15.9609 22 16.4696 22 17V19Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.704-2.782.604-3.369-1.34-3.369-1.34-.454-1.155-1.11-1.464-1.11-1.464-.908-.62.069-.608.069-.608 1.004.07 1.532 1.032 1.532 1.032.893 1.53 2.341 1.088 2.91.833.092-.647.35-1.088.636-1.338-2.221-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.682-.103-.253-.446-1.272.098-2.65 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.294 2.748-1.025 2.748-1.025.546 1.378.203 2.397.1 2.65.64.698 1.028 1.59 1.028 2.682 0 3.842-2.337 4.687-4.566 4.936.359.309.679.92.679 1.855 0 1.338-.012 2.419-.012 2.748 0 .267.18.577.688.479A10.013 10.013 0 0022 12c0-5.523-4.477-10-10-10z" fill="currentColor"/>
                         </svg>
                     </a>
+                    <!-- Insert your email address in a mailto link below, e.g., mailto:you@example.com -->
                     <a href="#" class="social-link" aria-label="Email">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -104,7 +129,9 @@
                 </div>
             </div>
             <div class="home-visual">
-                <div class="geometric-shape"></div>
+                <div class="geometric-shape">
+                    <img src="assets/images/profile.jpg" alt="My Image" class="shape-image">
+                </div>
             </div>
         </div>
         <div class="scroll-indicator">
@@ -124,25 +151,53 @@
             <h2 class="section-title">My<br>projects</h2>
             <div class="project-showcase">
                 <div class="project-preview">
-                    <div class="project-image">
-                        <img src="assets/images/Project.png" alt="Online Cinema Project" />
+                     <div class="project-image">
+                        <a href="https://docs.google.com/presentation/d/1o41hRzElo5WFZ_dku-x7CBOVjpXnSxDt/edit?usp=sharing&ouid=108860723707333158792&rtpof=true&sd=true" target="_blank" rel="noopener noreferrer" title="Open presentation">
+                            <img src="assets/images/Project.png" alt="Online Cinema Project" />
+                        </a>
                     </div>
                 </div>
                 <div class="project-details">
                     <div class="project-tags">
-                        <span class="tag">Design</span>
-                        <span class="tag">Web</span>
+                        <span class="tag">LLM</span>
+                        <span class="tag">Fine-Tuning</span>
+                        <span class="tag">BERT</span>
                     </div>
-                    <h3 class="project-title">Online cinema</h3>
-                    <p class="project-date">// September 2023</p>
+                    <h3 class="project-title">Sentiment Analyzer</h3>
+                    <p class="project-date">March 2025</p>
                     <p class="project-description">
-                        A feature-rich platform for streaming movies and TV shows. 
-                        It includes user authentication, personalized recommendations, 
-                        watchlists, and responsive design for seamless viewing across devices. 
-                        Technologies: React, Node.js, MongoDB.
+                        A sentiment analyzer is a tool that analyzes the sentiment of a text or a piece of content. 
+                        It is used to determine the sentiment of the text or the content.
+                        Technologies: Python, LLM, Fine-Tuning, BERT.
                     </p>
                     <button class="project-btn">See more</button>
                 </div>
+                
+            </div>
+            <div class="project-showcase">
+                <div class="project-preview">
+                     <div class="project-image">
+                        <a href="https://docs.google.com/presentation/d/1o41hRzElo5WFZ_dku-x7CBOVjpXnSxDt/edit?usp=sharing&ouid=108860723707333158792&rtpof=true&sd=true" target="_blank" rel="noopener noreferrer" title="Open presentation">
+                            <img src="assets/images/rag.gif" alt="Online Cinema Project" />
+                        </a>
+                    </div>
+                </div>
+                <div class="project-details">
+                    <div class="project-tags">
+                        <span class="tag">RAG</span>
+                        <span class="tag">AI Engineering</span>
+                        <span class="tag">Chatbot</span>
+                    </div>
+                    <h3 class="project-title">Retrieval-Augmented Generation</h3>
+                    <p class="project-date">August 2025</p>
+                    <p class="project-description">
+                        RAG is a technique that allows AI models to retrieve and use external data sources to answer questions or generate responses.
+                        Technologies: Python, Transformers, Llama, PyTorch, Google Colab, Hugging Face Spaces etc.
+                    </p>
+                    <button class="project-btn">See more</button>
+                </div>
+                
+                
             </div>
         </div>
     </section>
@@ -153,10 +208,10 @@
             <div class="education-grid">
                 <div class="education-column">
                     <div class="section-header">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M22 10V6C22 5.46957 21.7893 4.96086 21.4142 4.58579C21.0391 4.21071 20.5304 4 20 4H4C3.46957 4 2.96086 4.21071 2.58579 4.58579C2.21071 4.96086 2 5.46957 2 6V10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M7 20H17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M12 16V20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M22 10L12 2L2 10l10 6 10-6Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M6 12v5c3 3 9 3 12 0v-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M12 22V12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                         <h2>Education</h2>
                     </div>
@@ -165,10 +220,11 @@
                         <div class="timeline-item glass-box">
                             <div class="timeline-marker"></div>
                             <div class="timeline-content">
-                                <div class="education-period">2016-2020:</div>
-                                <div class="education-degree">PhD</div>
+                                <div class="education-period">2023-2026:</div>
+                                <div class="education-degree">UG</div>
+                                <div class="education-institution">Amity University, Noida</div>
                                 <div class="education-details">
-                                    Bachelor's Degree in Computer Science
+                                    Bachelor's Degree in Computer Application - CGPA: 8.3
                                 </div>
                             </div>
                         </div>
@@ -176,10 +232,10 @@
                         <div class="timeline-item glass-box">
                             <div class="timeline-marker"></div>
                             <div class="timeline-content">
-                                <div class="education-period">2018-2022:</div>
-                                <div class="education-institution">Harvard university</div>
+                                <div class="education-period">2022-2023:</div>
+                                <div class="education-institution">C.R.B.Memorial Public School</div>
                                 <div class="education-details">
-                                    Certificate in React and Redux, Node.js Developer Course
+                                    Senior Secondary Education - Percentage: 90%
                                 </div>
                             </div>
                         </div>
@@ -187,21 +243,10 @@
                         <div class="timeline-item glass-box">
                             <div class="timeline-marker"></div>
                             <div class="timeline-content">
-                                <div class="education-period">2010-2012:</div>
-                                <div class="education-institution">Oxford university</div>
+                                <div class="education-period">2020-2021:</div>
+                                <div class="education-institution">C.R.B.Memorial Public School</div>
                                 <div class="education-details">
-                                    Certification in Full Stack Web Development
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="timeline-item glass-box">
-                            <div class="timeline-marker"></div>
-                            <div class="timeline-content">
-                                <div class="education-period">2016-2020:</div>
-                                <div class="education-institution">Oxford university</div>
-                                <div class="education-details">
-                                    Certificate in React and Redux, Node.js Developer Course
+                                    Secondary Education - Percentage: 91%
                                 </div>
                             </div>
                         </div>
@@ -221,10 +266,10 @@
                         <div class="timeline-item glass-box">
                             <div class="timeline-marker"></div>
                             <div class="timeline-content">
-                                <div class="research-period">2016-2020:</div>
-                                <div class="research-title">Advanced Data Analytics with Big data Tools</div>
+                                <div class="research-period">2025</div>
+                                <div class="research-title">RAG - Retrieval-Augmented Generation</div>
                                 <div class="research-details">
-                                    Utilized big data tools for advanced analytics and insights.
+                                    I have researched on RAG - Retrieval-Augmented Generation and how it can be used to improve the accuracy of the AI model.
                                 </div>
                             </div>
                         </div>
@@ -261,166 +306,97 @@
         <div class="container">
             <h2 class="section-title">My skills</h2>
             <div class="skills-grid">
-                <div class="skill-card glass-box" data-skill="typescript">
-                    <div class="skill-icon">
-                        <div class="skill-logo ts-logo">TS</div>
-                    </div>
-                    <div class="skill-name">TypeScript</div>
-                </div>
                 
-                <div class="skill-card glass-box" data-skill="photoshop">
-                    <div class="skill-icon">
-                        <div class="skill-logo ps-logo">Ps</div>
-                    </div>
-                    <div class="skill-name">Photoshop</div>
-                </div>
                 
-                <div class="skill-card glass-box" data-skill="premiere">
+    
+                <div class="skill-card glass-box" data-skill="python">
                     <div class="skill-icon">
-                        <div class="skill-logo pr-logo">Pr</div>
-                    </div>
-                    <div class="skill-name">Premiere</div>
-                </div>
-                
-                <div class="skill-card glass-box" data-skill="lightroom">
-                    <div class="skill-icon">
-                        <div class="skill-logo lr-logo">Lr</div>
-                    </div>
-                    <div class="skill-name">Lightroom</div>
-                </div>
-                
-                <div class="skill-card glass-box" data-skill="illustrator">
-                    <div class="skill-icon">
-                        <div class="skill-logo ai-logo">Ai</div>
-                    </div>
-                    <div class="skill-name">Illustrator</div>
-                </div>
-                
-                <div class="skill-card glass-box" data-skill="nodejs">
-                    <div class="skill-icon">
-                        <div class="skill-logo node-logo">
-                            <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 1.85c-.27 0-.55.07-.78.2l-7.44 4.3c-.48.28-.78.8-.78 1.36v8.58c0 .56.3 1.08.78 1.36l7.44 4.3c.46.26 1.04.26 1.5 0l7.44-4.3c.48-.28.78-.8.78-1.36V7.71c0-.56-.3-1.08-.78-1.36l-7.44-4.3c-.23-.13-.51-.2-.78-.2zm0 2.03L18.5 8 12 12.12 5.5 8 12 3.88zm1 15.22V13.5l5.5-3.18v5.39l-5.5 3.18z"/>
-                            </svg>
+                        <div class="skill-logo">
+                            <img src="assets/icons/python.png" alt="Python" />
                         </div>
                     </div>
-                    <div class="skill-name">Node.js</div>
+                    <div class="skill-name">Python</div>
                 </div>
-                
-                <div class="skill-card glass-box" data-skill="react">
+
+                <div class="skill-card glass-box" data-skill="java">
                     <div class="skill-icon">
-                        <div class="skill-logo react-logo">
-                            <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 10.11c1.03 0 1.87.84 1.87 1.89s-.84 1.89-1.87 1.89c-1.03 0-1.87-.84-1.87-1.89s.84-1.89 1.87-1.89M7.37 20c.63.38 2.01-.2 3.6-1.7-.52-.59-1.03-1.23-1.51-1.9a22.7 22.7 0 0 1-2.4-.36c-.51 2.14-.32 3.61.31 3.96m.71-5.74l-.29-.51c-.11.29-.22.58-.29.86.27.06.57.11.88.16l-.3-.51m6.54-.76l.81-1.5-.81-1.5c-.3-.53-.62-1-.91-1.47C13.17 9 12.6 9 12 9s-1.17 0-1.71.03c-.29.47-.61.94-.91 1.47L8.57 12l.81 1.5c.3.53.62 1 .91 1.47.54.03 1.11.03 1.71.03s1.17 0 1.71-.03c.29-.47.61-.94.91-1.47M12 6.78c-.19.22-.39.45-.59.72h1.18c-.2-.27-.4-.5-.59-.72m0 10.44c.19-.22.39-.45.59-.72h-1.18c.2.27.4.5.59.72M16.62 4c-.62-.38-2 .2-3.59 1.7.52.59 1.03 1.23 1.51 1.9.82.08 1.63.2 2.4.36.51-2.14.32-3.61-.32-3.96m-.7 5.74l.29.51c.11-.29.22-.58.29-.86-.27-.06-.57-.11-.88-.16l.3.51m1.45-7.05c1.47.84 1.63 3.05 1.01 5.63 2.54.75 4.37 1.99 4.37 3.68s-1.83 2.93-4.37 3.68c.62 2.58.46 4.79-1.01 5.63-1.46.84-3.45-.12-5.37-1.95-1.92 1.83-3.91 2.79-5.37 1.95-1.47-.84-1.63-3.05-1.01-5.63-2.54-.75-4.37-1.99-4.37-3.68s1.83-2.93 4.37-3.68c-.62-2.58-.46-4.79 1.01-5.63 1.46-.84 3.45.12 5.37 1.95 1.92-1.83 3.91-2.79 5.37-1.95M17.08 12c.34.75.64 1.5.89 2.26 2.1-.63 3.28-1.53 3.28-2.26s-1.18-1.63-3.28-2.26c-.25.76-.55 1.51-.89 2.26M6.92 12c-.34-.75-.64-1.5-.89-2.26-2.1.63-3.28 1.53-3.28 2.26s1.18 1.63 3.28 2.26c.25-.76.55-1.51.89-2.26"/>
-                            </svg>
+                        <div class="skill-logo">
+                            <img src="assets/icons/java.png" alt="Java" />
                         </div>
                     </div>
-                    <div class="skill-name">React</div>
+                    <div class="skill-name">Java</div>
                 </div>
-                
-                <div class="skill-card glass-box" data-skill="svelte">
+
+                <div class="skill-card glass-box" data-skill="sql">
                     <div class="skill-icon">
-                        <div class="skill-logo svelte-logo">
-                            <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M10.354 21.125a2.847 2.847 0 0 0 4.539-.827L17.5 14.33c.545-1.026.4-2.319-.36-3.204l-6.676-7.764a2.847 2.847 0 0 0-4.539.827L3.318 9.67c-.545 1.026-.4 2.319.36 3.204l6.676 7.764c.658.765 1.658 1.187 2.677 1.187h.323z"/>
-                            </svg>
+                        <div class="skill-logo">
+                            <img src="assets/icons/sql.png" alt="SQL" />
                         </div>
                     </div>
-                    <div class="skill-name">Svelte</div>
+                    <div class="skill-name">SQL</div>
                 </div>
-                
-                <div class="skill-card glass-box" data-skill="aftereffects">
+
+                <div class="skill-card glass-box" data-skill="aws">
                     <div class="skill-icon">
-                        <div class="skill-logo ae-logo">Ae</div>
-                    </div>
-                    <div class="skill-name">After Effects</div>
-                </div>
-                
-                <div class="skill-card glass-box" data-skill="figma">
-                    <div class="skill-icon">
-                        <div class="skill-logo figma-logo">
-                            <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 12a3 3 0 1 1 6 0 3 3 0 0 1-6 0zM12 3a3 3 0 0 0-3 3v6a3 3 0 1 0 0 6 3 3 0 0 0 3-3V9a3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/>
-                            </svg>
+                        <div class="skill-logo">
+                            <img src="assets/icons/aws.png" alt="AWS" />
                         </div>
                     </div>
-                    <div class="skill-name">Figma</div>
+                    <div class="skill-name">AWS</div>
                 </div>
-                
-                <div class="skill-card glass-box" data-skill="strapi">
+
+                <div class="skill-card glass-box" data-skill="restapi">
                     <div class="skill-icon">
-                        <div class="skill-logo strapi-logo">
-                            <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M8.5 3h7v7h-7V3zm0 8.5h7V21h-7v-9.5zM0 3h7v7H0V3zm0 8.5h7V21H0v-9.5z"/>
-                            </svg>
+                        <div class="skill-logo">
+                            <img src="assets/icons/restapi.png" alt="REST API" />
                         </div>
                     </div>
-                    <div class="skill-name">Strapi</div>
+                    <div class="skill-name">REST API</div>
                 </div>
-                
-                <div class="skill-card glass-box" data-skill="postgresql">
+
+                <div class="skill-card glass-box" data-skill="ai">
                     <div class="skill-icon">
-                        <div class="skill-logo postgres-logo">
-                            <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M17.128 0C15.216 0 14.192.832 14.192 2.048c0 .8.48 1.536 1.216 1.92-.064.256-.128.544-.128.832 0 2.56 1.6 4.608 3.584 4.608 1.984 0 3.584-2.048 3.584-4.608 0-.288-.064-.576-.128-.832.736-.384 1.216-1.12 1.216-1.92C23.536.832 22.512 0 20.6 0c-.896 0-1.664.384-2.24.96-.576-.576-1.344-.96-2.24-.96z"/>
-                            </svg>
+                        <div class="skill-logo">
+                            <img src="assets/icons/AI.png" alt="AI" />
                         </div>
                     </div>
-                    <div class="skill-name">PostgreSQL</div>
+                    <div class="skill-name">AI</div>
                 </div>
-                
-                <div class="skill-card glass-box" data-skill="nextjs">
+
+                <div class="skill-card glass-box" data-skill="ml">
                     <div class="skill-icon">
-                        <div class="skill-logo next-logo">N</div>
-                    </div>
-                    <div class="skill-name">Next.js</div>
-                </div>
-                
-                <div class="skill-card glass-box" data-skill="javascript">
-                    <div class="skill-icon">
-                        <div class="skill-logo js-logo">JS</div>
-                    </div>
-                    <div class="skill-name">JavaScript</div>
-                </div>
-                
-                <div class="skill-card glass-box" data-skill="redux">
-                    <div class="skill-icon">
-                        <div class="skill-logo redux-logo">
-                            <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M16.634 16.504c.87-.075 1.543-.84 1.543-1.775 0-.685-.428-1.204-1.039-1.398.041-.42.016-.84-.105-1.26C16.634 10.29 15.549 9 13.96 9c-1.588 0-2.673 1.29-3.072 3.071-.121.42-.146.84-.105 1.26-.611.194-1.039.713-1.039 1.398 0 .935.673 1.7 1.543 1.775.42.855 1.260 1.496 2.273 1.496s1.853-.641 2.273-1.496z"/>
-                            </svg>
+                        <div class="skill-logo">
+                            <img src="assets/icons/ML.png" alt="Machine Learning" />
                         </div>
                     </div>
-                    <div class="skill-name">Redux</div>
+                    <div class="skill-name">Machine Learning</div>
                 </div>
-                
-                <div class="skill-card glass-box" data-skill="redis">
+
+                <div class="skill-card glass-box" data-skill="numpy">
                     <div class="skill-icon">
-                        <div class="skill-logo redis-logo">
-                            <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 2L2 7v10l10 5 10-5V7l-10-5zM8 8.5L12 6.5 16 8.5 12 10.5 8 8.5z"/>
-                            </svg>
+                        <div class="skill-logo">
+                            <img src="assets/icons/numpy.png" alt="NumPy" />
                         </div>
                     </div>
-                    <div class="skill-name">Redis</div>
+                    <div class="skill-name">NumPy</div>
                 </div>
-                
-                <div class="skill-card glass-box" data-skill="go">
+
+                <div class="skill-card glass-box" data-skill="pandas">
                     <div class="skill-icon">
-                        <div class="skill-logo go-logo">GO</div>
-                    </div>
-                    <div class="skill-name">Go</div>
-                </div>
-                
-                <div class="skill-card glass-box" data-skill="mongodb">
-                    <div class="skill-icon">
-                        <div class="skill-logo mongo-logo">
-                            <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                            </svg>
+                        <div class="skill-logo">
+                            <img src="assets/icons/pandas.png" alt="Pandas" />
                         </div>
                     </div>
-                    <div class="skill-name">MongoDB</div>
+                    <div class="skill-name">Pandas</div>
+                </div>
+
+                <div class="skill-card glass-box" data-skill="pytorch">
+                    <div class="skill-icon">
+                        <div class="skill-logo">
+                            <img src="assets/icons/pytorch.png" alt="PyTorch" />
+                        </div>
+                    </div>
+                    <div class="skill-name">PyTorch</div>
                 </div>
             </div>
         </div>
@@ -457,9 +433,9 @@
                         <h3>Get in touch</h3>
                         <p>I'm always open to discussing new opportunities and interesting projects.</p>
                         <div class="contact-details">
-                            <p><strong>Email:</strong> priyvrat.modi@example.com</p>
-                            <p><strong>Phone:</strong> +1 (555) 123-4567</p>
-                            <p><strong>Location:</strong> San Francisco, CA</p>
+                            <p><strong>Email:</strong> modipriyvrat2@gmail.com</p>
+                            <p><strong>Phone:</strong> +91 8077657307</p>
+                            <p><strong>Location:</strong> Mainpuri, UP, India</p>
                         </div>
                     </div>
                     <div class="resume-download">
@@ -469,7 +445,7 @@
                                 <polyline points="7,10 12,15 17,10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                 <line x1="12" y1="15" x2="12" y2="3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
-                            Download Resume
+                            Download My Resume
                         </button>
                     </div>
                 </div>

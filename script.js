@@ -3,25 +3,96 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Dark Mode Toggle
     const darkModeBtn = document.getElementById('darkModeBtn');
+    const themeSwitch = document.getElementById('themeSwitch');
     const body = document.body;
     
     // Check for saved dark mode preference
     const isDarkMode = localStorage.getItem('darkMode') === 'true';
     if (isDarkMode) {
         body.classList.add('dark-mode');
+        if (themeSwitch) themeSwitch.checked = true;
+    }
+
+    // Torch Mode Toggle
+    const torchModeBtn = document.getElementById('torchModeBtn');
+    const torchSwitch = document.getElementById('torchSwitch');
+    const officeModeBtn = document.getElementById('officeModeBtn');
+    const isTorchMode = localStorage.getItem('torchMode') === 'true';
+    if (isTorchMode) {
+        body.classList.add('torch-mode');
+        if (torchModeBtn) torchModeBtn.classList.add('active');
+        if (torchSwitch) torchSwitch.checked = true;
     }
     
-    darkModeBtn.addEventListener('click', function() {
-        body.classList.toggle('dark-mode');
-        const isDark = body.classList.contains('dark-mode');
-        localStorage.setItem('darkMode', isDark);
-        
-        // Add a subtle animation
-        this.style.transform = 'scale(0.95)';
-        setTimeout(() => {
-            this.style.transform = '';
-        }, 150);
-    });
+    if (darkModeBtn) {
+        darkModeBtn.addEventListener('click', function() {
+            body.classList.toggle('dark-mode');
+            const isDark = body.classList.contains('dark-mode');
+            localStorage.setItem('darkMode', isDark);
+            if (themeSwitch) themeSwitch.checked = isDark;
+            this.style.transform = 'scale(0.95)';
+            setTimeout(() => { this.style.transform = ''; }, 150);
+        });
+    }
+
+    // Theme switch checkbox -> sync to dark mode
+    if (themeSwitch) {
+        themeSwitch.addEventListener('change', function() {
+            const enable = this.checked;
+            body.classList.toggle('dark-mode', enable);
+            localStorage.setItem('darkMode', enable);
+        });
+    }
+
+    if (torchModeBtn) {
+        torchModeBtn.addEventListener('click', function() {
+            const enable = !body.classList.contains('torch-mode');
+            body.classList.toggle('torch-mode', enable);
+            this.classList.toggle('active', enable);
+            this.setAttribute('aria-pressed', enable ? 'true' : 'false');
+            localStorage.setItem('torchMode', enable);
+            if (torchSwitch) torchSwitch.checked = enable;
+            this.style.transform = 'scale(0.95)';
+            setTimeout(() => { this.style.transform = ''; }, 150);
+        });
+    }
+
+    // New torch switch -> toggles torch-mode
+    if (torchSwitch) {
+        torchSwitch.addEventListener('change', function() {
+            const enable = this.checked;
+            body.classList.toggle('torch-mode', enable);
+            localStorage.setItem('torchMode', enable);
+            if (torchModeBtn) {
+                torchModeBtn.classList.toggle('active', enable);
+                torchModeBtn.setAttribute('aria-pressed', enable ? 'true' : 'false');
+            }
+        });
+    }
+
+    // Office Mode Toggle (sets a single background image)
+    if (officeModeBtn) {
+        const isOfficeMode = localStorage.getItem('officeMode') === 'true';
+        if (isOfficeMode) {
+            body.classList.add('office-mode');
+            officeModeBtn.classList.add('active');
+            officeModeBtn.setAttribute('aria-pressed', 'true');
+        }
+
+        officeModeBtn.addEventListener('click', function() {
+            const enable = !body.classList.contains('office-mode');
+            body.classList.toggle('office-mode', enable);
+            this.classList.toggle('active', enable);
+            this.setAttribute('aria-pressed', enable ? 'true' : 'false');
+            localStorage.setItem('officeMode', enable);
+
+            // subtle press animation
+            this.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                this.style.transform = '';
+            }, 150);
+        });
+    }
 
     // Smooth scrolling for dock navigation links
     const dockItems = document.querySelectorAll('.dock-item');
@@ -192,54 +263,18 @@ document.addEventListener('DOMContentLoaded', function() {
     if (downloadResumeBtn) {
         downloadResumeBtn.addEventListener('click', function(e) {
             e.preventDefault();
-            
-            // Create a sample resume content
-            const resumeContent = `
-PRIYVRAT MODI
-Software Engineer
 
-Email: priyvrat.modi@example.com
-Phone: +1 (555) 123-4567
-Location: San Francisco, CA
+            // Update this path and filename to where your actual resume PDF lives
+            const resumeUrl = 'assets/resume/Priyvrat_Modi_Resume.pdf';
 
-SUMMARY
-Experienced Software Engineer with expertise in full-stack development, 
-specializing in modern web technologies and AI-driven solutions.
-
-EDUCATION
-• PhD in Computer Science (2016-2020)
-• Harvard University - React and Node.js Certificate (2018-2022)
-• Oxford University - Full Stack Web Development (2010-2012)
-
-SKILLS
-• Front-End: HTML, CSS, JavaScript, React, Angular
-• Back-End: Node.js, Express, Python, Django
-• Databases: MySQL, PostgreSQL, MongoDB
-• Tools & Platforms: Git, Docker, AWS, Heroku
-
-EXPERIENCE
-• Advanced Data Analytics with Big Data Tools (2016-2020)
-• Cloud-Native Application Architectures (2018-2022)
-• AI-Driven User Experience Personalization (2016-2020)
-
-PROJECTS
-• Online Cinema Platform - Full-stack streaming application
-• Portfolio Website - Modern glass morphism design
-• Various AI and web development projects
-            `;
-            
-            // Create and download the resume file
-            const blob = new Blob([resumeContent], { type: 'text/plain' });
-            const url = window.URL.createObjectURL(blob);
+            // Trigger the download directly (works when opening file locally too)
             const a = document.createElement('a');
-            a.href = url;
-            a.download = 'Priyvrat_Modi_Resume.txt';
+            a.href = resumeUrl;
+            a.setAttribute('download', 'Priyvrat_Modi_Resume.pdf');
             document.body.appendChild(a);
             a.click();
             document.body.removeChild(a);
-            window.URL.revokeObjectURL(url);
-            
-            showNotification('Resume downloaded successfully!', 'success');
+            showNotification('Resume download started!', 'success');
         });
     }
 
@@ -318,6 +353,78 @@ PROJECTS
             showNotification(`${platform} profile coming soon!`, 'info');
         });
     });
+
+    // Cursor torch tracking
+    const torch = document.querySelector('.cursor-torch');
+    if (torch) {
+        const updateTorch = (x, y) => {
+            torch.style.setProperty('--x', `${x}px`);
+            torch.style.setProperty('--y', `${y}px`);
+        };
+
+        document.addEventListener('mousemove', (e) => {
+            updateTorch(e.clientX, e.clientY);
+            // Only visible when torch-mode is enabled; CSS manages opacity
+        });
+
+        document.addEventListener('mouseleave', () => {
+            // No-op; remains ready when torch-mode is toggled back on
+        });
+
+        // Touch support
+        document.addEventListener('touchstart', (e) => {
+            const t = e.touches[0];
+            if (t) {
+                updateTorch(t.clientX, t.clientY);
+            }
+        }, { passive: true });
+
+        document.addEventListener('touchmove', (e) => {
+            const t = e.touches[0];
+            if (t) {
+                updateTorch(t.clientX, t.clientY);
+            }
+        }, { passive: true });
+
+        document.addEventListener('touchend', () => {
+            // No-op
+        }, { passive: true });
+    }
+
+    // Project slider
+    const slider = document.querySelector('.project-slider');
+    if (slider) {
+        const slides = Array.from(slider.querySelectorAll('.slide'));
+        const prevBtn = slider.querySelector('.prev');
+        const nextBtn = slider.querySelector('.next');
+        const dotsContainer = slider.querySelector('.slider-dots');
+        let current = Math.max(0, slides.findIndex(s => s.classList.contains('active')));
+        if (current === -1) current = 0;
+
+        // Build dots
+        dotsContainer.innerHTML = '';
+        slides.forEach((_, idx) => {
+            const dot = document.createElement('button');
+            dot.setAttribute('aria-label', `Go to slide ${idx + 1}`);
+            dot.addEventListener('click', () => goTo(idx));
+            dotsContainer.appendChild(dot);
+        });
+
+        function update() {
+            slides.forEach((s, i) => s.classList.toggle('active', i === current));
+            const dots = dotsContainer.querySelectorAll('button');
+            dots.forEach((d, i) => d.classList.toggle('active', i === current));
+        }
+
+        function goTo(index) {
+            current = (index + slides.length) % slides.length;
+            update();
+        }
+
+        prevBtn.addEventListener('click', () => goTo(current - 1));
+        nextBtn.addEventListener('click', () => goTo(current + 1));
+        update();
+    }
 
     // Initialize scroll position
     updateActiveDockItem();
